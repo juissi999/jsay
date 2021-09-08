@@ -1,0 +1,20 @@
+{
+  "name": "jsay",
+  "version": "0.0.1",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/juissi999/jsay.git"
+  },
+  "author": "juissi999",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/juissi999/jsay/issues"
+  },
+  "homepage": "https://github.com/juissi999/jsay#readme"
+}
