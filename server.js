@@ -6,12 +6,14 @@ const {Server} = require('socket.io')
 const io = new Server(server)
 const httpPort = 3000
 
-io.on('connection', socket=>{
+io.on('connection', socket => {
   console.log("new connection ", socket.id)
-  socket.on('message', (message)=>io.emit('newMessage', socket.id + ': ' + message))
+  socket.on('message', (message)=>
+    io.emit('newMessage', socket.id + ': ' + message)
+  )
 })
 
-app.get('/', (request, response)=>{
+app.get('/', (request, response) => {
   response.sendFile(__dirname + '/index.html')
 })
 

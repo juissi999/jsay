@@ -30,8 +30,9 @@
     })
     socket.on('disconnect', () =>
       status.textContent = "disconnected")
-    socket.on('connect', () =>
-      status.textContent = "connected")
+    socket.on('connect', (test) => {
+      status.textContent = "connected as " + socket.id
+    })
 
     sendbtn.addEventListener('click', () => {
       if (textfield.value === '') {
