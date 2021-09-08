@@ -12,6 +12,7 @@
   <h3>jsay</h3>
   <input type="text" id="textfield"></input>
   <button id="sendbtn">send</button>
+  <div id="status"></div>
   <div id="chat"></div>
   <script src="/socket.io/socket.io.js">
   </script>
@@ -19,6 +20,7 @@
     const sendbtn = document.getElementById('sendbtn')
     const textfield = document.getElementById('textfield')
     const chat = document.getElementById('chat')
+    const status = document.getElementById('status')
 
     const socket = io('http://localhost:3000')
     socket.on("newMessage", (newMessage) => {
@@ -26,6 +28,10 @@
       newMsgDiv.textContent = newMessage
       chat.appendChild(newMsgDiv)
     })
+    socket.on('disconnect', () =>
+      status.textContent = "disconnected")
+    socket.on('connect', () =>
+      status.textContent = "connected")
 
     sendbtn.addEventListener('click', () => {
       if (textfield.value === '') {
