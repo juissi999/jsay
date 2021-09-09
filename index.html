@@ -22,11 +22,15 @@
     const chat = document.getElementById('chat')
     const status = document.getElementById('status')
 
-    const socket = io('http://localhost:3000')
-    socket.on("newMessage", (newMessage) => {
+    const printMessage = (newMessage) => {
       const newMsgDiv = document.createElement('div')
       newMsgDiv.textContent = newMessage
       chat.appendChild(newMsgDiv)
+    }
+
+    const socket = io('http://localhost:3000')
+    socket.on("newMessage", (newMessage) => {
+      printMessage(newMessage.msg)
     })
     socket.on('disconnect', () =>
       status.textContent = "disconnected")
